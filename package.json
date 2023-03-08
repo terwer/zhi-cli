@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "type": "module",
   "bin": {
-    "zhi-cli": "./lib/src/index.js"
+    "zhi-cli": "./lib/index.js"
   },
   "scripts": {
     "dev": "node --experimental-specifier-resolution=node --loader ts-node/esm src/index.ts",
