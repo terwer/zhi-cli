@@ -4,6 +4,7 @@ import inquirer from "inquirer"
 import { downloadTemplate } from "./download"
 import { modifyPackageJson } from "./modify"
 import fs from "fs-extra"
+import pkg from "../package.json" assert { type: "json" }
 import path from "path"
 
 const templateGitUrl = "https://github.com/terwer/zhi-ts-template"
@@ -23,9 +24,6 @@ const InitPrompts = [
 ]
 
 const program = new Command()
-const pkg = JSON.parse(
-  fs.readFileSync(path.join(path.dirname("../"), "package.json"), "utf8")
-)
 
 program
   .name("zhi-cli")
