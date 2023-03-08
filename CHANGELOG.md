@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/terwer/zhi-cli/compare/v1.1.5...v1.1.6) (2023-03-08)
+
+
+### Bug Fixes
+
+* fix flow ([da9bf10](https://github.com/terwer/zhi-cli/commit/da9bf107b3a0c1814662951165f25956b58b8c8b))
+
 ## [1.1.5](https://github.com/terwer/zhi-cli/compare/v1.1.4...v1.1.5) (2023-03-08)
 
 
