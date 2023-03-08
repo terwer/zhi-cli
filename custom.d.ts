@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /*
  * Copyright (c) 2023, Terwer . All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
@@ -25,47 +23,4 @@
  * questions.
  */
 
-import {Command} from "commander"
-import inquirer from "inquirer"
-import {downloadTemplate} from "./download"
-
-const templateGitUrl = "https://github.com/terwer/zhi-log"
-let downloadPath = null
-
-const InitPrompts = [
-    {
-        name: "description",
-        message: "please input description",
-        default: "",
-    },
-    {
-        name: "author",
-        message: "please input author",
-        default: "",
-    }
-]
-
-const program = new Command()
-
-program
-    .name("zhi-cli")
-    .description("TypeScript application generator for zhi")
-    .version("0.0.1")
-
-program
-    .command("init <name>")
-    .description("init a zhi project")
-    .action(async (name: string) => {
-        console.log("start init zhi project:", name)
-        const initOptions = await inquirer.prompt(InitPrompts)
-        console.log("initOptions", initOptions)
-
-        try {
-            downloadPath = `./${name}`
-            await downloadTemplate(templateGitUrl, downloadPath)
-        } catch (error) {
-            console.error(error)
-        }
-    })
-
-program.parse()
+// declare module 'my-module'
