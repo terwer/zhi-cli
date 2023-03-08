@@ -12,7 +12,7 @@ export const downloadTemplate = (
     loading.start("start download template")
 
     gitclone(templateGitUrl, downloadPath, {
-      checkout: "master",
+      checkout: "main",
       shallow: true,
     })
       .then((r) => {

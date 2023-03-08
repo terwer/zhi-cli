@@ -38,8 +38,8 @@ program
     try {
       downloadPath = `./${name}`
       await downloadTemplate(templateGitUrl, downloadPath)
-      console.log(downloadPath)
       modifyPackageJson(downloadPath, { name, ...initOptions })
+      console.log("project created.")
     } catch (error) {
       console.error(error)
     }
