@@ -5,6 +5,7 @@ import { downloadTemplate } from "./download"
 import { modifyPackageJson } from "./modify"
 import fs from "fs-extra"
 import path from "path"
+import pkg from "../package.json" assert { type: "json" }
 
 const templateGitUrl = "https://github.com/terwer/zhi-ts-template"
 let downloadPath = null
@@ -27,7 +28,7 @@ const program = new Command()
 program
   .name("zhi-cli")
   .description("TypeScript application generator for zhi")
-  .version("0.0.1")
+  .version(pkg.version)
 
 program
   .command("init <name> <branch>")
