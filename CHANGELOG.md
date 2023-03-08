@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/terwer/zhi-cli/compare/v1.1.0...v1.1.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* add useful tips ([e04c925](https://github.com/terwer/zhi-cli/commit/e04c9255d286ba9b3c6a41ae728c62020394b2a5))
+* fix doc ([6acaf0d](https://github.com/terwer/zhi-cli/commit/6acaf0d1b48b8dc20ee2322e779e82f39ea0ffef))
+
 ## [1.1.0](https://github.com/terwer/zhi-cli/compare/v1.0.0...v1.1.0) (2023-03-08)
 
 
