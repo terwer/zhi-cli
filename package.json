@@ -1,0 +1,25 @@
+{
+  "name": "zhi-cli",
+  "version": "0.0.1",
+  "description": "zhi application generator",
+  "main": "lib/index.js",
+  "bin": {
+    "zhi-cli": "lib/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "terwer/zhi-cli",
+  "homepage": "https://terwer.space",
+  "keywords": [
+    "zhi",
+    "zhi-cli",
+    "cli"
+  ],
+  "author": "terwer",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "16",
+    "typescript": "^4.9.5"
+  }
+}
