@@ -42,20 +42,25 @@ program
 
     try {
       downloadPath = `./${name}`
+
+      // 如果存在需要先删除，否则无法检出
+      if (fs.existsSync(downloadPath)) {
+        fs.removeSync(downloadPath)
+      }
+
+      // 系在仓库并替换参数
       await downloadTemplate(templateGitUrl, downloadPath, b)
       modifyPackageJson(downloadPath, { name, ...initOptions })
 
-      // may not sync,so manually delete
-      // console.log("clean .git")
-      // fs.removeSync(path.join(downloadPath, ".git"))
-      console.warn(
-        "files may not sync right now, so you should manually delete .git folder."
-      )
+      // 删除git信息
+      fs.removeSync(path.join(downloadPath, ".git"))
+      // 删除模板
+      fs.removeSync(path.join(downloadPath, "package-template.json"))
+      console.log(".git cleaned.")
+
+      console.log("project created.")
       console.log(
-        "project created.Now you can do `cd " +
-          downloadPath +
-          "`" +
-          " and `pnpm install`"
+        "Now you can do `cd " + downloadPath + "`" + " and `pnpm install`"
       )
     } catch (error) {
       console.error(error)
