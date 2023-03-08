@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/terwer/zhi-cli/compare/v1.0.0...v1.1.0) (2023-03-08)
+
+
+### Features
+
+* update doc ([0fcf60a](https://github.com/terwer/zhi-cli/commit/0fcf60a70434f8514418411ff74abc576aa61054))
+* update doc ([24806d2](https://github.com/terwer/zhi-cli/commit/24806d2eba384a1d474d0573160490a73509f33e))
+
 ## 1.0.0 (2023-03-08)
 
 
