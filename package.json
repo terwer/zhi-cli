@@ -22,11 +22,13 @@
   "author": "terwer",
   "license": "MIT",
   "devDependencies": {
+    "@types/inquirer": "^9.0.3",
     "@types/node": "16",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "commander": "^10.0.0",
     "eslint": "^8.35.0",
+    "inquirer": "^8.2.5",
     "typescript": "^4.9.5"
   }
 }

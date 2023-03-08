@@ -25,7 +25,21 @@
  * questions.
  */
 
-import { Command } from "commander"
+import {Command} from "commander"
+import inquirer from "inquirer"
+
+const InitPrompts = [
+    {
+        name: "description",
+        message: "please input description",
+        default: "",
+    },
+    {
+        name: "author",
+        message: "please input author",
+        default: "",
+    }
+]
 
 const program = new Command()
 
@@ -37,8 +51,10 @@ program
 program
     .command("init <name>")
     .description("init a zhi project")
-    .action((name: string) => {
+    .action(async (name: string) => {
         console.log("start init zhi project:", name)
+        const initOptions = await inquirer.prompt(InitPrompts)
+        console.log("initOptions", initOptions)
     })
 
 program.parse()
