@@ -23,7 +23,9 @@ const InitPrompts = [
 ]
 
 const program = new Command()
-const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
+const pkg = JSON.parse(
+  fs.readFileSync(path.join(path.dirname("../"), "package.json"), "utf8")
+)
 
 program
   .name("zhi-cli")
