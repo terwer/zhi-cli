@@ -5,7 +5,6 @@ import { downloadTemplate } from "./download"
 import { modifyPackageJson } from "./modify"
 import fs from "fs-extra"
 import path from "path"
-import pkg from "../package.json" assert { type: "json" }
 
 const templateGitUrl = "https://github.com/terwer/zhi-ts-template"
 let downloadPath = null
@@ -24,6 +23,7 @@ const InitPrompts = [
 ]
 
 const program = new Command()
+const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
 
 program
   .name("zhi-cli")
