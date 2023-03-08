@@ -109,13 +109,6 @@
     "sourceMap": true,
     "outDir": "./lib"
   },
-  "include": [
-    ".eslintrc.js",
-    "src/**/*",
-    "custom.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib/**/*"
-  ]
+  "include": [".eslintrc.js", "src/**/*", "custom.d.ts"],
+  "exclude": ["node_modules", "lib/**/*"]
 }
