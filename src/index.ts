@@ -45,8 +45,12 @@ program
       await downloadTemplate(templateGitUrl, downloadPath, b)
       modifyPackageJson(downloadPath, { name, ...initOptions })
 
-      console.log("clean .git")
-      fs.removeSync(path.join(downloadPath, ".git"))
+      // may not sync,so manually delete
+      // console.log("clean .git")
+      // fs.removeSync(path.join(downloadPath, ".git"))
+      console.warn(
+        "files may not sync right now, so you should manually delete .git folder."
+      )
       console.log(
         "project created.Now you can do `cd " +
           downloadPath +
