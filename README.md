@@ -7,7 +7,7 @@ a tool for generating zhi framework related projects
 ## Usage
 
 ```bash
-pnpm add zhi-cli -g
+npm i -g zhi-cli
 ```
 
 ```bash
