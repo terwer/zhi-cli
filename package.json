@@ -24,7 +24,7 @@
   ],
   "author": "terwer",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@types/fs-extra": "^11.0.1",
     "@types/git-clone": "^0.2.0",
     "@types/inquirer": "^8.2.5",
