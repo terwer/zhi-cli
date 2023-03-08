@@ -1,10 +1,13 @@
 import fs from "fs-extra"
 import path from "path"
 import handlebars from "handlebars"
+import ora from "ora"
+
+const log = ora("modify")
 
 export const modifyPackageJson = function (downloadPath: string, options: any) {
-  console.log("modifying package.json……")
   const packagePath = path.join(downloadPath, "package.json")
+  log.start("start modifying package.json")
   if (fs.existsSync(packagePath)) {
     const content = fs.readFileSync(packagePath).toString()
     const template = handlebars.compile(content)
@@ -17,8 +20,11 @@ export const modifyPackageJson = function (downloadPath: string, options: any) {
 
     const result = template(param)
     fs.writeFileSync(packagePath, result)
-    console.log("modify package.json complete")
+    log.stop()
+    log.succeed("modify package.json complate")
   } else {
+    log.stop()
+    log.fail("modify package.json fail")
     throw new Error("no package.json")
   }
 }

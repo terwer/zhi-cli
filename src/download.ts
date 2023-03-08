@@ -1,21 +1,32 @@
-import gitclone from "git-clone"
+import gitclone from "git-clone/promise"
 import fs from "fs-extra"
 import path from "path"
+import ora from "ora"
 
-export const downloadTemplate = async (
+export const downloadTemplate = (
   templateGitUrl: string,
   downloadPath: string
 ) => {
-  let ret
-  try {
-    await gitclone(templateGitUrl, downloadPath, {
-      checkout: "main",
+  const loading = ora("download template")
+  return new Promise((resolve, reject) => {
+    loading.start("start download template")
+
+    gitclone(templateGitUrl, downloadPath, {
+      checkout: "master",
       shallow: true,
     })
-    fs.removeSync(path.join(downloadPath, ".git"))
-    ret = "download success"
-  } catch (error) {
-    ret = error
-  }
-  return ret
+      .then((r) => {
+        fs.removeSync(path.join(downloadPath, ".git"))
+        loading.succeed("download success")
+        loading.stop()
+
+        resolve("download success")
+      })
+      .catch((error) => {
+        loading.stop()
+        loading.fail("download fail")
+
+        reject(error)
+      })
+  })
 }

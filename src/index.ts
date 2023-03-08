@@ -4,7 +4,7 @@ import inquirer from "inquirer"
 import { downloadTemplate } from "./download"
 import { modifyPackageJson } from "./modify"
 
-const templateGitUrl = "https://github.com/terwer/zhi-log"
+const templateGitUrl = "https://github.com/terwer/zhi-ts-template"
 let downloadPath = null
 
 const InitPrompts = [
@@ -38,7 +38,8 @@ program
     try {
       downloadPath = `./${name}`
       await downloadTemplate(templateGitUrl, downloadPath)
-      await modifyPackageJson(downloadPath, { name, ...initOptions })
+      console.log(downloadPath)
+      modifyPackageJson(downloadPath, { name, ...initOptions })
     } catch (error) {
       console.error(error)
     }
