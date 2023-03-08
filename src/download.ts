@@ -5,14 +5,15 @@ import ora from "ora"
 
 export const downloadTemplate = (
   templateGitUrl: string,
-  downloadPath: string
+  downloadPath: string,
+  branch: string
 ) => {
   const loading = ora("download template")
   return new Promise((resolve, reject) => {
     loading.start("start download template")
 
     gitclone(templateGitUrl, downloadPath, {
-      checkout: "main",
+      checkout: branch,
       shallow: true,
     })
       .then((r) => {

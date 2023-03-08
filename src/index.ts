@@ -28,16 +28,18 @@ program
   .version("0.0.1")
 
 program
-  .command("init <name>")
+  .command("init <name> <branch>")
   .description("init a zhi project")
-  .action(async (name: string) => {
+  .action(async (name: string, branch: string) => {
     console.log("start init zhi project:", name)
+    const b = branch ?? "main"
+    console.log("current branch:", b)
     const initOptions = await inquirer.prompt(InitPrompts)
     console.log("initOptions", initOptions)
 
     try {
       downloadPath = `./${name}`
-      await downloadTemplate(templateGitUrl, downloadPath)
+      await downloadTemplate(templateGitUrl, downloadPath,b)
       modifyPackageJson(downloadPath, { name, ...initOptions })
       console.log("project created.")
     } catch (error) {
