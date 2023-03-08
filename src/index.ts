@@ -23,5 +23,20 @@
  * questions.
  */
 
-const msg = "Hello World"
-console.log(msg)
+import { Command } from "commander"
+
+const program = new Command()
+
+program
+    .name("zhi-cli")
+    .description("TypeScript application generator for zhi")
+    .version("0.0.1")
+
+program
+    .command("init <name>")
+    .description("init a zhi project")
+    .action((name: string) => {
+        console.log("start init zhi project:", name)
+    })
+
+program.parse()
