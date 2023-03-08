@@ -4,7 +4,7 @@
   "description": "zhi application generator",
   "main": "lib/index.js",
   "bin": {
-    "zhi-cli": "lib/index.js"
+    "zhi-cli": "./lib/index.js"
   },
   "scripts": {
     "dev": "tsc && node lib/index.js",
