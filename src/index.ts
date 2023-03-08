@@ -3,6 +3,8 @@ import { Command } from "commander"
 import inquirer from "inquirer"
 import { downloadTemplate } from "./download"
 import { modifyPackageJson } from "./modify"
+import fs from "fs-extra"
+import path from "path"
 
 const templateGitUrl = "https://github.com/terwer/zhi-ts-template"
 let downloadPath = null
@@ -39,9 +41,17 @@ program
 
     try {
       downloadPath = `./${name}`
-      await downloadTemplate(templateGitUrl, downloadPath,b)
+      await downloadTemplate(templateGitUrl, downloadPath, b)
       modifyPackageJson(downloadPath, { name, ...initOptions })
-      console.log("project created.")
+
+      console.log("clean .git")
+      fs.removeSync(path.join(downloadPath, ".git"))
+      console.log(
+        "project created.Now you can do `cd " +
+          downloadPath +
+          "`" +
+          " and `pnpm install`"
+      )
     } catch (error) {
       console.error(error)
     }

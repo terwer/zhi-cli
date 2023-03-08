@@ -1,6 +1,4 @@
 import gitclone from "git-clone/promise"
-import fs from "fs-extra"
-import path from "path"
 import ora from "ora"
 
 export const downloadTemplate = (
@@ -10,14 +8,16 @@ export const downloadTemplate = (
 ) => {
   const loading = ora("download template")
   return new Promise((resolve, reject) => {
+    console.log("prepare to checkout templateGitUrl=>", templateGitUrl)
+    console.log("prepare to checkout downloadPath=>", downloadPath)
+    console.log("prepare to checkout branch=>", branch)
     loading.start("start download template")
 
     gitclone(templateGitUrl, downloadPath, {
       checkout: branch,
-      shallow: true,
+      shallow: false,
     })
       .then((r) => {
-        fs.removeSync(path.join(downloadPath, ".git"))
         loading.succeed("download success")
         loading.stop()
 
